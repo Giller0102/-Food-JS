@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Проверяем, существуют ли элементы табов
+    // Проверка, существуют ли элементы табов
     if (tabs.length > 0 && tabsContent.length > 0) {
         hideTabContent();
         showTabContent();
@@ -43,7 +43,7 @@ window.addEventListener('DOMContentLoaded', function() {
     
     // Timer
     function updateTimer() {
-        const deadline = '2025-12-31'; // Обновленная дата
+        const deadline = '2026-05-20'; // Обновленная дата
 
         function getTimeRemaining(endtime) {
             const t = Date.parse(endtime) - Date.parse(new Date()),
@@ -91,10 +91,8 @@ window.addEventListener('DOMContentLoaded', function() {
                     if (seconds) seconds.innerHTML = getZero(t.seconds);
                 }
             }
-            
             updateClock();
         }
-
         setClock('.timer', deadline);
     }
     
@@ -197,7 +195,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Создаем карточки меню
+    // Карточки меню
     const menuContainer = document.querySelector(".menu .container");
     if (menuContainer) {
         try {
@@ -246,7 +244,7 @@ window.addEventListener('DOMContentLoaded', function() {
         let sex = 'female',
             activityValue = 1.375;
 
-        // Загружаем сохраненные значения
+        // Загрузка сохраненных значения
         function loadSettings() {
             const savedSex = localStorage.getItem('sex');
             const savedActivity = localStorage.getItem('activity');
@@ -387,8 +385,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
                 const formData = new FormData(form);
 
-                // Используем fetch вместо XMLHttpRequest
-                fetch('server.php', {
+                // fetch вместо XMLHttpRequest
+                fetch('/server.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -457,7 +455,7 @@ window.addEventListener('DOMContentLoaded', function() {
             prevModalDialog.classList.remove('hide');
             prevModalDialog.classList.add('show');
             
-            // Закрываем модальное окно через 4 секунды
+            // Закрываем модальное окно через 3 секунды
             setTimeout(() => {
                 if (modal.classList.contains('show')) {
                     modal.classList.add('hide');
@@ -465,10 +463,10 @@ window.addEventListener('DOMContentLoaded', function() {
                     document.body.style.overflow = '';
                 }
             }, 2000);
-        }, 4000);
+        }, 3000);
     }
 
-    // Слайдер (если нужен)
+    // Слайдер
     function initSlider() {
         const slides = document.querySelectorAll('.offer__slide');
         const prev = document.querySelector('.offer__slider-prev');
@@ -505,3 +503,4 @@ window.addEventListener('DOMContentLoaded', function() {
     
     initSlider();
 });
+
